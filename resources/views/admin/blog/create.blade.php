@@ -43,26 +43,35 @@
                                 @enderror
                             </div> --}}
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" name="status" value="{{ old('status') }}">
+                                <input class="form-check-input" type="checkbox" name="status"  value="1">
                                 <label class="form-check-label">Public</label>
                                 @error('status')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
-                                <input type="text" class="form-control" name="lang" placeholder="Til"
-                                    value="{{ old('lang') }}">
-                                @error('lang')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <label>Tilni tanlang</label>
+
+                                    {!!  \App\helpers\getLangs() !!}
+
+                                @error('category_id')
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="user_id" placeholder="User id"
-                                    value="{{ old('user_id') }}">
-                                @error('user_id')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <input type="text" class="form-control" name="lang" placeholder="Til"--}}
+{{--                                    value="{{ old('lang') }}">--}}
+{{--                                @error('lang')--}}
+{{--                                    <div class="text-danger">{{ $message }}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <input type="text" class="form-control" name="user_id" placeholder="User id"                                 value="{{ old('user_id') }}">--}}
+{{--                                @error('user_id')--}}
+{{--                                    <div class="text-danger">{{ $message }}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
                             {{-- <div class="form-group">
                                 <input type="text" class="form-control w-25" name="category_id" placeholder="Category id"
                                     value="{{ old('lcategory_id') }}">

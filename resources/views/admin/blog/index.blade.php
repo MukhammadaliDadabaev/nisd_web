@@ -67,7 +67,7 @@
                                     <tr>
                                         <td>{{ $blog->id }}</td>
                                         <td>{{ $blog->title }}</td>
-                                        <td>{{ $blog->status }}</td>
+                                        <td>{!! \App\helpers\getIsActive($blog->status) !!}  </td>
                                         <td>{{ $blog->lang }}</td>
                                         <td>{{ $blog->public_date }}</td>
                                         <td><a class="text-gray-dark" href="{{ route('admin.blog.show', $blog) }}"><i

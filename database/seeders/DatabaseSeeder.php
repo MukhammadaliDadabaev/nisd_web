@@ -58,12 +58,12 @@ class DatabaseSeeder extends Seeder
     ]);
     DB::table('categories')->insert([
       'title' => 'Narkotik',
-      'status' => '2',
+      'status' => '1',
       'description' => 'Giyohvand moddalar asab tizimi  va miyaga salbiy ta\'sir qiladi.',
     ]);
     DB::table('categories')->insert([
       'title' => 'Suvlar',
-      'status' => '3',
+      'status' => '1',
       'description' => 'Giyohvand moddalar asab tizimi  va miyaga salbiy ta\'sir qiladi.',
     ]);
 
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
       'title' => 'Sigaretalar',
       'user_id' => 1,
       'category_id' => 1,
-      'status' => '3',
+      'status' => '1',
       'lang' => 'ru',
       'content' => 'Chekishning zarari shundaki, u uchta asosiy kasallikni keltirib chiqaradi o‘pka saratoni, surunkali bronxit, yurak-qon tomir kasalliklari.',
       'image' => 'sigaret.png',
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
       'title' => 'Spirtli ichimliklar',
       'user_id' => 2,
       'category_id' => 2,
-      'status' => '2',
+      'status' => '1',
       'lang' => 'uz',
       'content' => 'Spirtli ichimliklar markaziy asab tizimini buzadi',
       'image' => 'spirt_ichimlik.jepg',
@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
       'title' => 'Narkotiklar',
       'user_id' => 3,
       'category_id' => 3,
-      'status' => '3',
+      'status' => '1',
       'lang' => 'en',
       'content' => 'Giyohvand moddalar asab tizimi  va miyaga salbiy ta\'sir qiladi.',
       'image' => 'narkotik.jepg',
@@ -99,25 +99,25 @@ class DatabaseSeeder extends Seeder
     ]);
 
     DB::table('languages')->insert([
-      'name' => 'uz',
-      'code' => 1,
+      'name' => 'Uzbek',
+      'code' => 'uz',
       'is_default' => 1,
-      'flag' => 'uzbek',
+      'flag' => 'uzbek.png',
       'active' => 1,
     ]);
     DB::table('languages')->insert([
-      'name' => 'ru',
-      'code' => 2,
-      'is_default' => 2,
-      'flag' => 'ruscha',
-      'active' => 2,
+      'name' => 'Русский',
+      'code' => 'ru',
+      'is_default' => 0,
+      'flag' => 'russian.png',
+      'active' => 1,
     ]);
     DB::table('languages')->insert([
-      'name' => 'en',
-      'code' => 3,
-      'is_default' => 3,
-      'flag' => 'english',
-      'active' => 3,
+      'name' => 'English',
+      'code' => 'en',
+      'is_default' => 0,
+      'flag' => 'english.png',
+      'active' => 1,
     ]);
   }
 }
