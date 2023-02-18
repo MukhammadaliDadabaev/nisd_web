@@ -57,9 +57,8 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, User $user)
     {
         $data = $request->validated();
+        $data['password'] = Hash::make($data['password'] = Str::random(7));
         unset($data['photo']);
-        $data['password'] = Hash::make($data['password']);
-        User::firstOrCreate(['email' => $data['email']], $data);
         if ($request->has('photo')) {
             Storage::delete($user->photo);
             $data['photo'] = $request->file('photo')->store('user-photo');

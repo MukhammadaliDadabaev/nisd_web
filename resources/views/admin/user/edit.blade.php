@@ -30,35 +30,51 @@
                 <div class="col-12">
                     <form action="{{ route('admin.user.update', $user) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Ism</label>
                                 <input type="text" class="form-control" name="name" id=""
                                     placeholder="Enter name" value="{{ $user->name }}">
+                                @error('name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Familya</label>
                                 <input type="text" class="form-control" name="last_name" id=""
                                     placeholder="Enter email" value="{{ $user->last_name }}">
+                                @error('last_name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Telefon</label>
                                 <input type="number" class="form-control" name="phone" id=""
-                                    placeholder="Enter telefon" value="{{ old('phone')}}">
+                                    placeholder="Enter telefon" value="{{ $user->phone }}">
+                                @error('photo')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input type="text" class="form-control" name="email" id=""
                                     placeholder="Enter email" value="{{ $user->email }}">
+                                    @error('email')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="e">Password</label>
                                 <input type="password" class="form-control" name="password" id=""
                                     placeholder="Password" value="{{ $user->password }}">
+                                    @error('password')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -72,7 +88,7 @@
                                         <span class="input-group-text">YUKLASH</span>
                                     </div>
                                 </div>
-                                @error('image')
+                                @error('photo')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -80,14 +96,13 @@
                             <div class="form-group">
                                 <label>Foydalanuvchini tanlang</label>
                                 <select name="role" class="form-control">
-                                    @foreach($roles as $id =>  $role)
-                                        <option value="{{ $id }}"
-                                            {{ $id == $user->role ? ' selected' : '' }}
-                                        >{{ $role }}</option>
+                                    @foreach ($roles as $id => $role)
+                                        <option value="{{ $id }}" {{ $id == $user->role ? ' selected' : '' }}>
+                                            {{ $role }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                                 <div class="form-group">
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
