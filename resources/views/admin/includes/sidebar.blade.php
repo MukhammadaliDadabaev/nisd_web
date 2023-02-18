@@ -40,9 +40,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('admin.user.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-th-list"></i>
-                    <p>Contact</p>
+                    <p>Users</p>
                 </a>
             </li>
             <li class="nav-item">

@@ -12,7 +12,7 @@ class ResetController extends Controller
     {
         Artisan::call('migrate:fresh --seed');
 
-        foreach (['blog-image'] as $folder) {
+        foreach (['blog-image', 'user-photo'] as $folder) {
             Storage::deleteDirectory($folder);
             Storage::makeDirectory($folder);
 

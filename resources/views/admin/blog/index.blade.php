@@ -77,7 +77,7 @@
                                                     class="fas fa-pencil-alt"></i></a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.blog.delete', $blog) }}" method="POST">
+                                            <form action="{{ route('admin.blog.destroy', $blog) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent">

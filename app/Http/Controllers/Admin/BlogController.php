@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function index()
   {
     $blogs = Blog::all();
@@ -36,13 +31,14 @@ class BlogController extends Controller
   public function store(BlogStoreRequest $request)
   {
 
-    $data =$request->validated();
+    $data = $request->validated();
     unset($data['image']);
     if ($request->has('image')) {
       $data['image'] = $request->file('image')->store('blog-image');
     }
-    $data['user_id']=Auth::user()->id;
-    $data['status']=$request->status ? 1 : 0;
+
+    $data['user_id'] = Auth::user()->id;
+    $data['status'] = $request->status ? 1 : 0;
     Blog::create($data);
     return redirect()->route('admin.blog.index');
   }
@@ -77,7 +73,7 @@ class BlogController extends Controller
   //   $data['image'] = Storage::disk('public')->put('/blog-images', $data['image']);
   //   $data['image'] = $request->file('image')->getClientOriginalName();
 
-  public function delete(Blog $blog)
+  public function destroy(Blog $blog)
   {
     $blog->delete();
     return redirect()->route('admin.blog.index');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Admin\MainIndexController;
 use App\Http\Controllers\Admin\PageController;
@@ -41,7 +42,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // // ADMIN__ROUTE
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::get('/', [MainIndexController::class, 'admin'])->name('admin');
   Route::get('/reset', [ResetController::class, 'reset'])->name('reset');
 
@@ -64,12 +65,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 
   //---> BLOG
   Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
-  Route::get('/create', [BlogController::class, 'create'])->name('admin.blog.create');
+  Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
   Route::post('/blog', [BlogController::class, 'store'])->name('admin.blog.store');
   Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('admin.blog.show');
   Route::get('/blog/{blog}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
   Route::patch('/blog/{blog}', [BlogController::class, 'update'])->name('admin.blog.update');
-  Route::delete('/blog/{blog}', [BlogController::class, 'delete'])->name('admin.blog.delete');
+  Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
 
   // //---> CATEGORY
   Route::get('/category', [CategoryController::class, 'index'])->name('admin.category.index');
@@ -79,4 +80,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
   Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
   Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
   Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+
+  //---> UAERS
+  Route::get('/user', [UserController::class, 'index'])->name('admin.user.index');
+  Route::get('/user/create', [UserController::class, 'create'])->name('admin.user.create');
+  Route::post('/user', [UserController::class, 'store'])->name('admin.user.store');
+  Route::get('/user/{user}', [UserController::class, 'show'])->name('admin.user.show');
+  Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
+  Route::patch('/user/{user}', [UserController::class, 'update'])->name('admin.user.update');
+  Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('admin.user.destroy');
 });

@@ -12,43 +12,40 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
+        'last_name',
+        'role',
+        'photo',
+        'phone',
         'email',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+    const ROLE_ADMIN = 0;
+    const ROLE_MANAGER = 1;
+    const ROLE_EDITOR = 2;
+
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Admin',
+            self::ROLE_MANAGER => 'Manager',
+            self::ROLE_EDITOR => 'Blogger',
+        ];
+    }
+
     public function blogs()
     {
         return $this->hasMany(Blog::class);
-    }
-
-    public function isAdmin()
-    {
-        return $this->is_admin === 1;
     }
 }
