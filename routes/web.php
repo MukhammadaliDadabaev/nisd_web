@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // // ADMIN__ROUTE
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
   Route::get('/', [MainIndexController::class, 'admin'])->name('admin');
 
   //--->RESET_DB
