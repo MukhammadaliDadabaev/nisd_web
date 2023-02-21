@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.menu.')}}" class="nav-link">
+                <a href="{{ route('admin.menu.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>Menu</p>
                 </a>
