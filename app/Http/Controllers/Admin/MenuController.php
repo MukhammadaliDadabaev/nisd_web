@@ -11,7 +11,15 @@ use Laracasts\Flash\Flash;
 
 class MenuController extends Controller
 {
-    public function index(){
 
+    public $menu;
+
+    public function __construct(Menu $menu){
+        return $this->menu=$menu;
+    }
+
+    public function index(){
+        $menus=$this->menu->get();
+        return view('admin.menu.index',compact('menus'));
     }
 }
