@@ -8,7 +8,7 @@ function getLangs()
 {
   $option = '';
   $langs = Language::where('active', 1)->get();
-  $option .= '<select name="lang" class="form-control">';
+  $option .= '<select name="lang" class="form-control select2" style="width: 100%;">';
   foreach ($langs as $lang) {
     $selected = $lang->is_default === 1 ? 'selected="selected"' : '';
     $option .= '<option value="' . $lang->code . '"' . $selected . '>' . $lang->name . '</option>';
