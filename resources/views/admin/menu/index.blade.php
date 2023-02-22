@@ -45,7 +45,8 @@
         </div>
     </section>
     <section class="col-lg-5 connectedSortable ui-sortable">
-
+            <form method="post" action="{{ route('store') }}">
+                @csrf
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Menu create</h3>
@@ -54,8 +55,7 @@
                         <!-- Date -->
                         <div class="form-group">
                             <label>Заголовок пункта меню:</label>
-                            <input type="text" class="form-control"/>
-
+                            <input type="text" class="form-control" name="title"/>
                         </div>
                         <!-- Date and time -->
 {{--                        <div class="form-group">--}}
@@ -71,7 +71,7 @@
                         <div class="form-group">
 
                             <div class="icheck-success d-inline">
-                                <input type="checkbox" checked="" id="checkboxSuccess1">
+                                <input type="checkbox" checked="" id="checkboxSuccess1" name="is_published">
                                 <label for="checkboxSuccess1">
                                     Актив
                                 </label>
@@ -81,11 +81,11 @@
                         <!-- /.form group -->
                     </div>
                     <div class="card-footer clearfix">
-                        <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                        <button type="submit" class="btn btn-primary float-right"><i class="fas fa-plus"></i>Save</button>
                     </div>
                     <!-- /.card-body -->
                 </div>
-
+</form>
     </section>
 </div>
 

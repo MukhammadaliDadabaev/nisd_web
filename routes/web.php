@@ -62,13 +62,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
   });
 
     Route::group(['prefix' => 'menu'], function () {
-        Route::get('/', [MenuController::class, 'index'])->name('admin.menu.index');
-        Route::get('/create', [MenuController::class, 'create'])->name('admin.menu.create');
-        Route::post('/', [MenuController::class, 'store'])->name('admin.menu.store');
-        Route::get('/{menu}', [MenuController::class, 'show'])->name('admin.menu.show');
-        Route::get('/{menu}/edit', [MenuController::class, 'edit'])->name('admins.menu.edit');
-        Route::patch('/{menu}', [MenuController::class, 'update'])->name('admin.menu.update');
-        Route::delete('/{menu}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
+        Route::resource('/',MenuController::class);
+//        Route::get('/', [MenuController::class, 'index'])->name('admin.menu.index');
+//        Route::get('/create', [MenuController::class, 'create'])->name('admin.menu.create');
+//        Route::post('/save', [MenuController::class, 'store']);
+//        Route::get('/{menu}', [MenuController::class, 'show'])->name('admin.menu.show');
+//        Route::get('/{menu}/edit', [MenuController::class, 'edit'])->name('admins.menu.edit');
+//        Route::patch('/{menu}', [MenuController::class, 'update'])->name('admin.menu.update');
+//        Route::delete('/{menu}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
     });
 
 
