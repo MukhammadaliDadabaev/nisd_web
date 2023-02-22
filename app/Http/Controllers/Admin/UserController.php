@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserStoreRequest;
 use App\Http\Requests\Admin\UserUpdateRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -15,14 +16,15 @@ class UserController extends Controller
 
     public function index()
     {
+        $roles = Role::all();
         $users = User::all();
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users', 'roles'));
     }
 
 
     public function create()
     {
-        $roles = User::getRoles();
+        $roles = Role::getRoles();
         return view('admin.user.create', compact('roles'));
     }
 
@@ -35,8 +37,9 @@ class UserController extends Controller
         if ($request->has('photo')) {
             $data['photo'] = $request->file('photo')->store('user-photo');
         }
-        // User::create($data);
+
         User::firstOrCreate(['email' => $data['email']], $data);
+
         return redirect()->route('admin.user.index');
     }
 
@@ -49,7 +52,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $roles = User::getRoles();
+        $roles = Role::getRoles();
         return view('admin.user.edit', compact('user', 'roles'));
     }
 

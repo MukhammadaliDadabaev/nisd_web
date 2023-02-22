@@ -41,6 +41,11 @@
                                 class="fas fa-bars"></i></a>
                     </li>
                 </ul>
+                @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="post">
@@ -49,7 +54,7 @@
                         </form>
                     </li>
                 </ul>
-              </div>
+            </div>
         </nav>
         <!-- /.navbar -->
         @include('admin.includes.sidebar')

@@ -23,7 +23,7 @@ class ResetController extends Controller
             }
         }
 
-        session()->flash('success', 'ALI 😎');
+        session()->flash('success', 'DB YANGILANDI...😎 👍');
         return redirect()->route('admin');
     }
 }

@@ -15,7 +15,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'last_name',
-        'role',
+//        'role',
         'photo',
         'phone',
         'email',
@@ -31,17 +31,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    const ROLE_ADMIN = 0;
-    const ROLE_MANAGER = 1;
-    const ROLE_EDITOR = 2;
-
-    public static function getRoles()
+    public function roles()
     {
-        return [
-            self::ROLE_ADMIN => 'Admin',
-            self::ROLE_MANAGER => 'Manager',
-            self::ROLE_EDITOR => 'Blogger',
-        ];
+        return $this->belongsToMany(Role::class);
     }
 
     public function blogs()

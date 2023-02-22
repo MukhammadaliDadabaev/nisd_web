@@ -26,7 +26,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="ml-2 mb-3">
-                    <a href="{{ route('admin.user.create') }}" class="btn btn-block btn-primary">QO'SHISH</a>
+                    <a href="{{ route('admin.role.create') }}" class="btn btn-block btn-primary">QO'SHISH</a>
                 </div>
                 <!-- ./col -->
             </div>
@@ -54,20 +54,14 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>ISM</th>
-                                        <th>FIO</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Parol</th>
-                                        <th>Rasm</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $user)
+                                    @foreach ($roles as $role)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->last_name }}</td>
-                                           @foreach($roles as $role)
+                                            <td>{{ $role->id }}</td>
+                                            <td>{{ $role->name }}</td>
+                                             @foreach($roles as $role)
                                                 @if ($role->id == 1)
                                                     <td><span class="badge bg-black">Super Admin</span></td>
                                                 @elseif ($role->id == 2)

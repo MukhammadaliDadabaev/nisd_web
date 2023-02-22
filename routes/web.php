@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // // ADMIN__ROUTE
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
   Route::get('/', [MainIndexController::class, 'admin'])->name('admin');
 
   //--->RESET_DB
@@ -65,10 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
         Route::get('/', [MenuController::class, 'index'])->name('admin.menu.index');
         Route::get('/create', [MenuController::class, 'create'])->name('admin.menu.create');
         Route::post('/', [MenuController::class, 'store'])->name('admin.menu.store');
-        Route::get('/{language}', [MenuController::class, 'show'])->name('admin.menu.show');
-        Route::get('/{language}/edit', [MenuController::class, 'edit'])->name('admin.menu.edit');
-        Route::patch('/{language}', [MenuController::class, 'update'])->name('admin.menu.update');
-        Route::delete('/{language}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
+        Route::get('/{menu}', [MenuController::class, 'show'])->name('admin.menu.show');
+        Route::get('/{menu}/edit', [MenuController::class, 'edit'])->name('admins.menu.edit');
+        Route::patch('/{menu}', [MenuController::class, 'update'])->name('admin.menu.update');
+        Route::delete('/{menu}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
     });
 
 
@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
   });
 
-  //---> UAERS
+  //---> USERS
   Route::group(['prefix' => 'user'], function () {
     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
     Route::get('/create', [UserController::class, 'create'])->name('admin.user.create');
@@ -115,5 +115,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::put('/{user}', [UserController::class, 'update'])->name('admin.user.update');
     Route::get('/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
     Route::delete('/{user}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+  });
+
+//-----> Role
+  Route::group(['prefix' => 'role'], function () {
+    Route::get('/', [UserController::class, 'index'])->name('admin.role.index');
+    Route::get('/create', [UserController::class, 'create'])->name('admin.role.create');
+    Route::post('/', [UserController::class, 'store'])->name('admin.role.store');
+    Route::get('/{role}', [UserController::class, 'show'])->name('admin.role.show');
+    Route::put('/{role}', [UserController::class, 'update'])->name('admin.role.update');
+    Route::get('/{role}/edit', [UserController::class, 'edit'])->name('admin.role.edit');
+    Route::delete('/{role}', [UserController::class, 'destroy'])->name('admin.role.destroy');
   });
 });
