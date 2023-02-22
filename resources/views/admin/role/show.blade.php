@@ -39,49 +39,13 @@
                                 <tbody>
                                     <tr>
                                         <th>Id raqami</th>
-                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $role->id }}</td>
                                     </tr>
                                     <tr>
                                         <th>User nomi</th>
-                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $role->name }}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Familiya</th>
-                                        <td>{{ $user->last_name }}</td>
-                                    </tr>
-                                    {{-- <tr>
-                                        <th>Status</th>
-                                        @if ($user->status == null)
-                                            <td><span class="badge bg-danger">{{ $user->status }}</span></td>
-                                        @elseif ($user->status = 1)
-                                            <td><span class="badge bg-danger">{{ $user->status }}</span></td>
-                                        @endif
-                                    </tr> --}}
-                                    {{-- <tr>
-                                        <th>Users </th>
-                                        <td>{{ $user->is_users }}</td>
-                                    </tr> --}}
-                                    <tr>
-                                        <th>User role id:</th>
-                                        <td>{{ $user->role }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Telefon</th>
-                                        <td>{{ $user->phone }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Parol</th>
-                                        <td>{{ $user->password }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td>{{ $user->email }}</td>
-                                    </tr>
-                                    <td>
-                                        <img src="{{ Storage::url($user->photo) }}" height="130px" alt="IMAGE">
-                                    </td>
 
-                                    <td>
                                 </tbody>
                             </table>
                         </div>

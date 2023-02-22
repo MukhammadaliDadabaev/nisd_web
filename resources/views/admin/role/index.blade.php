@@ -74,20 +74,14 @@
                                                     <td><span class="badge bg-warning">Member</span></td>
                                                 @endif
                                             @endforeach
-                                            <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->password }}</td>
-                                            <td>
-                                                <img src="{{ Storage::url($user->photo) }}" height="50px" width="60px" style="border-radius: 50%" alt="IMAGE">
-                                            </td>
-                                            <td><a class="text-gray-dark" href="{{ route('admin.user.show', $user) }}"><i
+                                            <td><a class="text-gray-dark" href="{{ route('admin.role.show', $user) }}"><i
                                                         class="far fa-eye"></i></a>
                                             </td>
-                                            <td><a class="text-success" href="{{ route('admin.user.edit', $user) }}"><i
+                                            <td><a class="text-success" href="{{ route('admin.role.edit', $user) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.user.destroy', $user) }}" method="POST">
+                                                <form action="{{ route('admin.role.destroy', $user) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent">
