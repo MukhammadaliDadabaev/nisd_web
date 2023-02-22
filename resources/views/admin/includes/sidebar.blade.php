@@ -52,6 +52,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.role.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-th-list"></i>
+                    <p>Roles</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('reset') }}" class="nav-link">
                     <i class="nav-icon fas fa-tags"></i>
                     <p>Services</p>
