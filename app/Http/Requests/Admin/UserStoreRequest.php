@@ -20,8 +20,6 @@ class UserStoreRequest extends FormRequest
   {
     return [
       'name' => 'required|string',
-      'last_name' => 'required|string',
-      'role' => 'required|integer',
       'phone' => 'required|numeric',
       'email' => 'required|string|email|unique:users',
       'password' => 'required|string',
@@ -34,8 +32,6 @@ class UserStoreRequest extends FormRequest
     return [
       'name.required' => 'Ushbu qator, to`ldirilishi shart',
       'name.string' => 'Ism qator bo`lishi kerak',
-      'last_name.required' => 'Ushbu qator, to`ldirilishi shart',
-      'last_name.string' => 'Pochta satr bo`lishi kerak',
       'phone.required' => 'Ushbu qator, to`ldirilishi shart',
       'phone.string' => 'Ism qator bo`lishi kerak',
       'email.required' => 'Ushbu qator, to`ldirilishi shart',

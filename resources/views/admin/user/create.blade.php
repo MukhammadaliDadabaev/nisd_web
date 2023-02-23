@@ -41,15 +41,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Familya</label>
-                                <input type="text" class="form-control" name="last_name" id=""
-                                    placeholder="Enter familya" value="{{ old('last_name') }}">
-                                @error('last_name')
-                                    <div class="text-danger">{{ $message }} 👆</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label for="">Telefon</label>
                                 <input type="number" class="form-control" name="phone" id=""
                                     placeholder="Enter telefon" value="{{ old('phone') }}">

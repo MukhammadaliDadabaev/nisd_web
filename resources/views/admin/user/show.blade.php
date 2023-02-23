@@ -45,10 +45,6 @@
                                         <th>User nomi</th>
                                         <td>{{ $user->name }}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Familiya</th>
-                                        <td>{{ $user->last_name }}</td>
-                                    </tr>
                                     {{-- <tr>
                                         <th>Status</th>
                                         @if ($user->status == null)

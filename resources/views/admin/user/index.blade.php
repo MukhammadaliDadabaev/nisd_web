@@ -66,25 +66,24 @@
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
-                                            <td>{{ $user->last_name }}</td>
-                                            <td>
+                                             <td>
 {{--                                                @foreach($user->roles as $role)--}}
-                                                    <span class="badge bg-black">{{ $user }}</span>
+{{--                                                    <span class="badge bg-black">{{ $user }}</span>--}}
 {{--                                                @endforeach--}}
                                             </td>
-{{--                                           @foreach($roles as $role)--}}
-{{--                                            @if ($role->id == 1)--}}
-{{--                                                    <td><span class="badge bg-black">Super Admin</span></td>--}}
-{{--                                                @elseif ($role->id == 2)--}}
-{{--                                                    <td><span class="badge bg-primary">Admin</span></td>--}}
-{{--                                                @elseif ($role->id == 3)--}}
-{{--                                                    <td><span class="badge bg-success">Manager</span></td>--}}
-{{--                                                @elseif ($role->id == 4)--}}
-{{--                                                    <td><span class="badge bg-info">Editor</span></td>--}}
-{{--                                                @elseif ($role->id == 5)--}}
-{{--                                                    <td><span class="badge bg-warning">Member</span></td>--}}
-{{--                                                @endif--}}
-{{--                                            @endforeach--}}
+                                           @foreach($roles as $role)
+                                            @if ($role->id == 1)
+                                                    <td><span class="badge bg-black">Super Admin</span></td>
+                                                @elseif ($role->id == 2)
+                                                    <td><span class="badge bg-primary">Admin</span></td>
+                                                @elseif ($role->id == 3)
+                                                    <td><span class="badge bg-success">Manager</span></td>
+                                                @elseif ($role->id == 4)
+                                                    <td><span class="badge bg-info">Editor</span></td>
+                                                @elseif ($role->id == 5)
+                                                    <td><span class="badge bg-warning">Member</span></td>
+                                                @endif
+                                            @endforeach
                                             <td>{{ $user->phone }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->password }}</td>

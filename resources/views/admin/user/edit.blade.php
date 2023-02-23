@@ -42,15 +42,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Familya</label>
-                                <input type="text" class="form-control" name="last_name" id=""
-                                    placeholder="Enter email" value="{{ $user->last_name }}">
-                                @error('last_name')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label for="">Telefon</label>
                                 <input type="number" class="form-control" name="phone" id=""
                                     placeholder="Enter telefon" value="{{ $user->phone }}">
@@ -96,9 +87,9 @@
                             <div class="form-group">
                                 <label>Foydalanuvchini tanlang</label>
                                 <select name="role" class="form-control">
-                                    @foreach ($roles as $id => $role)
-                                        <option value="{{ $id }}" {{ $id == $user->role ? ' selected' : '' }}>
-                                            {{ $role }}</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">
+                                            {{ $role->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')

@@ -18,8 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $users = User::leftJoin('role_user','role_user.user_id','=','users.id')
-                    ->leftJoin('roles','roles.id','=','role_user.role_id')->get();
+        $users = User::all();
         return view('admin.user.index', compact('users', 'roles'));
     }
 
@@ -56,7 +55,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $roles = Role::getRoles();
+        $roles = Role::all();
         return view('admin.user.edit', compact('user', 'roles'));
     }
 
