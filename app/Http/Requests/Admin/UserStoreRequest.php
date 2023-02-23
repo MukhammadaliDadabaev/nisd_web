@@ -16,17 +16,12 @@ class UserStoreRequest extends FormRequest
     return true;
   }
 
-  /**
-   * Get the validation rules that apply to the request.
-   *
-   * @return array<string, mixed>
-   */
   public function rules()
   {
     return [
       'name' => 'required|string',
       'last_name' => 'required|string',
-//      'role' => 'required|integer',
+      'role' => 'required|integer',
       'phone' => 'required|numeric',
       'email' => 'required|string|email|unique:users',
       'password' => 'required|string',

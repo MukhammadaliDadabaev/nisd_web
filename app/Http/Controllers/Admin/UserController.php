@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserStoreRequest;
 use App\Http\Requests\Admin\UserUpdateRequest;
 use App\Models\Role;
+use App\Models\RoleUser;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,8 @@ class UserController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $users = User::all();
+        $users = User::leftJoin('role_user','role_user.user_id','=','users.id')
+                    ->leftJoin('roles','roles.id','=','role_user.role_id')->get();
         return view('admin.user.index', compact('users', 'roles'));
     }
 
@@ -38,7 +40,9 @@ class UserController extends Controller
             $data['photo'] = $request->file('photo')->store('user-photo');
         }
 
-        User::firstOrCreate(['email' => $data['email']], $data);
+        $user=User::firstOrCreate(['email' => $data['email']], $data);
+        $roleuser=RoleUser::create(['user_id'=>$user->id,'role_id'=>$request->role]);
+
 
         return redirect()->route('admin.user.index');
     }

@@ -96,7 +96,7 @@
                                 <label>Foydalanuvchini tanlang</label>
                                 <select name="role" class="form-control">
                                     @foreach ($roles as $role)
-                                        <option value="">{{ $role->name }}</option>
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')
