@@ -23,7 +23,7 @@ class RoleController extends Controller
 
     public function create()
     {
-        $roles = Role::getRoles();
+        $roles = Role::all();
         return view('admin.role.create', compact('roles'));
     }
 
@@ -43,7 +43,8 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        return view('admin.role.show', compact('role'));
+        $roles = Role::all();
+        return view('admin.role.edit', compact('role', 'roles'));
     }
 
 
@@ -51,7 +52,7 @@ class RoleController extends Controller
     {
         $data = $request->validated();
 
-        role->update($data);
+        $role->update($data);
         return redirect()->route('admin.role.show', compact('role'));
     }
 

@@ -8,6 +8,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!--Menu page -->
+    <link href="{{asset('/assets/css/menu-managment.css')}}" rel="stylesheet" type="text/css">
+{{--    <meta name="_token" content="{!! csrf_token() !!}"/>--}}
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
     <!-- Font Awesome -->

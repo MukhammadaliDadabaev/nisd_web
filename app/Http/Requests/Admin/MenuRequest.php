@@ -16,14 +16,14 @@ class MenuRequest extends FormRequest
     public function rules()
     {
         return [
-           'title'=>'required',
-           'parent_id'=>'required|numeric',
-           'is_published'=>'required',
-           'option'=>'required',
-           'url'=>"required",
-           'order'=>"required",
-           'type'=>"required",
-           'lang'=>'required',
+            'title' => 'required',
+            'parent_id' => 'required|numeric',
+            'is_published' => 'required',
+            'option' => 'required',
+            'url' => "nullable",
+            'order' => "required",
+            'type' => "required",
+            'lang' => 'required',
         ];
     }
 }

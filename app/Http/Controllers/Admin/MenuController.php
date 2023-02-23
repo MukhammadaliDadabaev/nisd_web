@@ -25,30 +25,15 @@ class MenuController extends Controller
         return view('admin.menu.index',compact('menus'));
     }
 
-    public function create(){
-
-    }
-
-    public function edit(){
-
-    }
-
-    public function update(){
-
-    }
-
-    public function destroy(){
-
-    }
     public function store(MenuRequest $request){
-//        try {
-//            $data = $request->validated();
-//            $data['parent_id'] = 0;
-//            $this->menu->create($data);
-//        } catch (ValidationException $e){
-//            echo $e->getMessage();
-//        }
-        // return redirect(route('admin.menu.index'));
+        try {
+            $data = $request->validated();
+            $data['parent_id'] = 0;
+            $this->menu->create($data);
+        } catch (ValidationException $e){
+            echo $e->getMessage();
+        }
+         return redirect(route('admin.menu.index'));
 
     }
 }

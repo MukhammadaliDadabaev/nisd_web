@@ -21,27 +21,44 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('admin.role.update', $user) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.role.update', $role) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="">Ism</label>
-                                <input type="text" class="form-control" name="name" id=""
-                                    placeholder="Enter name" value="{{ $user->name }}">
-                                @error('name')
+
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label for="">Role</label>
+                                    <input type="text" class="form-control" name="name" id=""
+                                           placeholder="Enter name" value="{{ $role->name }}">
+                                    @error('name')
                                     <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                                    @enderror
+                                </div>
+
+                                <div class="form-group" data-select2-id="13">
+                                    <label>Roleni o'zgartirish</label>
+                                    <select name="name" class="form-control">
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('role')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <div class="card-footer">
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
@@ -51,5 +68,6 @@
 
         </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+    <!-- Main content -->
+
 @endsection

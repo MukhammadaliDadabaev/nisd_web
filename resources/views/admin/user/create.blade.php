@@ -95,25 +95,15 @@
                             <div class="form-group w-100">
                                 <label>Foydalanuvchini tanlang</label>
                                 <select name="role" class="form-control">
-                                    @foreach ($roles as $id => $role)
-                                        <option value="{{ $id }}"
-                                            {{ $id == old('role') ? ' selected' : '' }}>
-                                            {{ $role }}</option>
+                                    @foreach ($roles as $role)
+                                        <option value="">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            {{-- <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" name="status" value="1">
-                                <label class="form-check-label">Public</label>
-                                @error('status')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div> --}}
-
-                        </div>
+                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">

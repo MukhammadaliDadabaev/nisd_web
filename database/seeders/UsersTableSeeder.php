@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
   {
 
     $user = User::create([
-      'name' => 'Super Admin',
+      'name' => 'Boss',
 //      'role_id' => 0,
       'last_name' => 'Supers',
       'photo' => 'supernisdadmin.jepg',
@@ -26,17 +26,18 @@ class UsersTableSeeder extends Seeder
       'email' => 'superadminnisd@gmail.com',
       'password' => Hash::make('password'),
     ]);
-    $user->roles()->attach([1,2]);
+    $user->roles()->attach([1]);
 
-//    User::create([
-//      'name' => 'Project Manager',
-////      'role_id' => 1,
-//      'last_name' => 'Malikhanov',
-//      'photo' => 'manager.jepg',
-//      'phone' => '+998674752000',
-//      'email' => 'manager_nisd@gmail.com',
-//      'password' => Hash::make('password'),
-//    ]);
+    $user0 = User::create([
+      'name' => 'Partnir',
+//      'role_id' => 1,
+      'last_name' => 'Malikhanov',
+      'photo' => 'manager.jepg',
+      'phone' => '+998674752000',
+      'email' => 'adminnisd@gmail.com',
+      'password' => Hash::make('password'),
+    ]);
+    $user0->roles()->attach([2]);
 
     $user1 = User::create([
       'name' => 'Ali Manager',
