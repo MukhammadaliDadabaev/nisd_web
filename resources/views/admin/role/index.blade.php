@@ -91,12 +91,18 @@
                                 <tbody>
                                 @foreach($roles as $role)
 
-{{--                                    @foreach($users as $user)--}}
 
                                     <tr role="row" class="odd">
                                         <td id="perm_2" title="Click to edit permission">{{ $role->id }}</td>
                                         <td>{{ $role->name }}</td>
-{{--                                        <td>{{ $user->name }}</td>--}}
+                                        <td>
+
+                                            @foreach($role->roleuser as $user)
+                                                @foreach($user->users as $us)
+                                                    {{ $us->name }}<br/>
+                                            @endforeach
+                                            @endforeach
+                                        </td>
                                         <td><a class="text-success" href="{{ route('admin.role.edit', $role) }}"><i
                                                     class="fas fa-pencil-alt"></i></a>
                                         </td>
@@ -110,7 +116,7 @@
                                             </form>
                                         </td>
                                     </tr>
-{{--                                    @endforeach--}}
+
                                 @endforeach
                                 </tbody>
 
