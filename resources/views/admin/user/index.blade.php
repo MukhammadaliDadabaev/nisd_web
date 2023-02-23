@@ -68,7 +68,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->last_name }}</td>
                                            @foreach($roles as $role)
-                                                @if ($role->id == 1)
+                                            @if ($role->id == 1)
                                                     <td><span class="badge bg-black">Super Admin</span></td>
                                                 @elseif ($role->id == 2)
                                                     <td><span class="badge bg-primary">Admin</span></td>
@@ -79,7 +79,7 @@
                                                 @elseif ($role->id == 5)
                                                     <td><span class="badge bg-warning">Member</span></td>
                                                 @endif
-                                            @endforeach
+                                            @endforeac0h
                                             <td>{{ $user->phone }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->password }}</td>

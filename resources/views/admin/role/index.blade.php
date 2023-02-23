@@ -98,9 +98,7 @@
                                         <td>
 
                                             @foreach($role->roleuser as $user)
-                                                @foreach($user->users as $us)
-                                                    {{ $us->name }}<br/>
-                                            @endforeach
+                                                    {{ $user->name}}<br/>
                                             @endforeach
                                         </td>
                                         <td><a class="text-success" href="{{ route('admin.role.edit', $role) }}"><i
