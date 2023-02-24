@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RoleStoreRequest;
 use App\Http\Requests\Admin\RoleUpdateRequest;
 use App\Models\Role;
+use App\Models\RoleUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,9 @@ class RoleController extends Controller
     public function index()
     {
 
-        $users = User::all();
+        $roleusers = RoleUser::all();
         $roles = Role::all();
-        return view('admin.role.index', compact('roles', 'users', ));
+        return view('admin.role.index', compact('roles', 'roleusers'));
     }
 
 

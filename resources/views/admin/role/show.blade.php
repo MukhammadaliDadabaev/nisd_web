@@ -41,7 +41,7 @@
                                         <td>{{ $role->id }}</td>
                                     </tr>
                                     <tr>
-                                        <th>User nomi</th>
+                                        <th>User permission</th>
                                         <td>{{ $role->name }}</td>
                                     </tr>
 
