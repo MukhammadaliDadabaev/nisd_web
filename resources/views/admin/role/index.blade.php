@@ -95,10 +95,8 @@
                                         <td id="perm_2" title="Click to edit permission">{{ $role->id }}</td>
                                         <td>{{ $role->name }}</td>
 
-                                        @foreach ($users as $id => $user)
-                                        <td>
-                                           <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                        </td>
+                                        @foreach ($users as $user)
+                                            <td>{{ $user->name }}</td>
                                         @endforeach
 
                                         <td><a class="text-success" href="{{ route('admin.role.edit', $role) }}"><i
